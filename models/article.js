@@ -35,12 +35,14 @@ const articleSchema = new mongoose.Schema({
   image: {
     type: String,
     required: true,
+/*
     validate: {
       validator(link) {
         return validator.isURL(link);
       },
       message: (link) => `${link.value} некорректный адрес!`,
     },
+*/
   },
   owner: {
     type: mongoose.Schema.Types.ObjectId,

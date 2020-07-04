@@ -3,7 +3,7 @@ const NotFoundError = require('../errors/notFoundError');
 // const ForbiddenError = require('../errors/forbiddenError');
 
 module.exports.getArticles = (req, res, next) => {
-  Article.find({})
+  Article.find({ owner: req.user._id }, '-__v -owner')
     .then((cards) => res.send({ data: cards }))
     .catch(next);
 };
